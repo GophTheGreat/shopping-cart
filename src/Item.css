@@ -1,0 +1,19 @@
+.itemContainer {
+  border: 2px solid black;
+  border-radius: 12px;
+  height: 300px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
+.itemImageContainer {
+  height: 80%;
+  width: auto;
+}
+
+.itemImage {
+  object-fit: contain;
+  width: auto;
+  height: 80%;
+}
