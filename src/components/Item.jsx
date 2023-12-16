@@ -1,5 +1,7 @@
 import { items } from "../data";
 import "../Item.css"
+import PropTypes from 'prop-types';
+import React from 'react';
 
 function Item( {item, onClick} ){
   const {id, name, image} = item;
@@ -13,6 +15,11 @@ function Item( {item, onClick} ){
     </div>
     </>
   )
+}
+
+Item.propTypes = {
+  item: PropTypes.object,
+  onClick: PropTypes.func,
 }
 
 export default Item;
