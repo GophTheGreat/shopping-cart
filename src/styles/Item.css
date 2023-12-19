@@ -1,11 +1,12 @@
 .itemContainer {
+  display: flex;
   border: 2px solid black;
   border-radius: 12px;
   height: 300px;
-  width: 600px;
-  display: flex;
+  width: 20%;
   flex-direction: column;
   text-align: center;
+  text-wrap: wrap;
 }
 
 .itemImageContainer {

@@ -1,16 +1,14 @@
-import { items } from "../data";
-import "../Item.css"
+import "../styles/Item.css"
 import PropTypes from 'prop-types';
-import React from 'react';
 
 function Item( {item, onClick} ){
-  const {id, name, image} = item;
+  const {title, image} = item;
   return (
     <>
     <div className="itemContainer">
-      <p>{name}</p>
+      <p>{title}</p>
       <div className="itemImageContainer">
-        <img className="itemImage" src={image} alt={name}></img>
+        <img className="itemImage" src={image} alt={title}></img>
       </div>
     </div>
     </>
