@@ -19,3 +19,29 @@
   width: auto;
   height: 80%;
 }
+
+.quantityField {
+  appearance: 'textfield';
+}
+
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transition: border .5s;
+}
+
+.arrow:hover{
+  border-color: grey;
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
