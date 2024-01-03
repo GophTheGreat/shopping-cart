@@ -21,6 +21,11 @@
   padding-left: 20px;
 }
 
+.cartIcon {
+  width: 30px;
+  height: 30px;
+}
+
 .badge:after {
   content: attr(data-count);
   position: absolute;

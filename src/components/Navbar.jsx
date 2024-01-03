@@ -1,23 +1,36 @@
 import { Link } from "react-router-dom";
 import "../styles/Navbar.css"
 import PropTypes from 'prop-types';
+import { useState } from "react";
 
-function Navbar( {cartItems} ) {
+const imagePath = import.meta.env.VITE_REACT_APP_IMAGE_PATH;
 
-  const numCartItems = 1;
+function Navbar( { cartItems } ) {
+  console.log(imagePath);
+
+  let numCartItems = 0;
+  cartItems.forEach(element => {
+    numCartItems += element.quantity;
+  });
+
+  // const [numCartItems, setNumCartItems] = useState(0);
+
+  // setNumCartItems(cartItems)
+
+  console.log("Debug - cartItems:", cartItems);
 
   return (
     <nav className="navbar">
       <ul className="linkWrapper">
         <li>
-          <Link to="home" className="navLink">Home</Link>
+          <Link to="/" className="navLink">Home</Link>
         </li>
         <li>
           <div className="navCart navLink">
-            <Link to="cart">My Shopping Cart</Link>
+          <Link to={{ pathname: "/cart", state: { cartItems: cartItems } }}><img className="cartIcon" src={imagePath + "/cart.png"} alt="Cart"></img></Link>
             {numCartItems ? 
-              <i data-count={cartItems.length} className="badge"></i> :
-              <></>
+              <i data-count={numCartItems} className="badge"></i> :
+              null
             }
           </div>
         </li>
@@ -25,8 +38,8 @@ function Navbar( {cartItems} ) {
     </nav>
   )
 }
-
 Navbar.propTypes = {
   cartItems: PropTypes.array
 }
+
 export default Navbar;

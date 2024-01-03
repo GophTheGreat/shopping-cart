@@ -30,22 +30,37 @@ function App() {
 
   const [cartItems, setCartItems] = useState([]);
 
-  function onAddToCart(id, quantity) {
-    console.log("Adding items to cart of id: ", id, "and quantity: ", quantity)
-    //find the items corresponding to the ID
-    let item = fetchedItems.find(item => item.id === id)
-    //loop by the quantity
-    let newCartItems = [];
-    for(let i = 0; i < quantity; i++){
-      //Store items in temp array
-      newCartItems.push(item);
+  function onAddToCart(item, quantity) {
+    if(quantity === 0){
+      return;
     }
-    console.log("Items to add to cart: ", newCartItems);
-    setCartItems(prevCartItems => {
+    console.log("Adding items to cart of id: ", item.id, "and quantity: ", quantity)
+    //search cart to see if an item already exists
+    //if it does just add quantity
+    if(cartItems.some(cartItem => cartItem.item.id === item.id)){
+      console.log("Item previously exists in cart")
+      //take the previous cart items array
+      //copy it
+      //sub the quantity of the new items
+      setCartItems(prevCartItems => {
+        const updatedCartItems = [...prevCartItems];
+        const index = updatedCartItems.findIndex(cartItem => cartItem.item.id === item.id)
+        updatedCartItems[index].quantity += quantity;
+        reportCart(updatedCartItems);
+        return updatedCartItems;
+       });
+    }
+
+    //if not proceed to add item of quantity
+    else {
+      const newCartItems = {item, quantity};
+      setCartItems(prevCartItems => {
+      console.log("Item does not previously exist in cart")
       const updatedCartItems = prevCartItems.concat(newCartItems);
       reportCart(updatedCartItems);
       return updatedCartItems;
      });
+    }
   }
 
   function reportCart(updatedCartItems){

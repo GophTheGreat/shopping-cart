@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useState } from "react";
 
 function Item( {item, onAddToCart} ){
-  const {id, title, image} = item;
+  const {title, image} = item;
   const [quantity, setQuantity] = useState(0);
 
   function decrement() {
@@ -40,7 +40,7 @@ function Item( {item, onAddToCart} ){
         <input className="quantityField" maxLength={3} value={quantity} alt="Quantity" onChange={change}/>
         <button className="arrow right" onClick={increment} aria-label="Increment"/>
       </div>
-      <button className="itemAddToCartButton" onClick={() => {onAddToCart(id, quantity)}}>Add To Cart</button>
+      <button className="itemAddToCartButton" onClick={() => {onAddToCart(item, quantity)}}>Add To Cart</button>
     </div>
     </>
   )
