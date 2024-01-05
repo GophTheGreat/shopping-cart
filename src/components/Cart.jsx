@@ -4,10 +4,10 @@ import Navbar from './Navbar';
 function Cart() {
 
   const location = useLocation();
-  console.log("Initial location state:", location.state);
-  const cartItems = location.state ? location.state.cartItems || [] : [];
+  console.log("Initial location:", location);
+  const cartItems = (location.state && location.state.cart) || [];
 
-  console.log("In  the cart here is the cart: ", cartItems)
+  console.log("In the cart here is the cart: ", cartItems)
   
  return (
   <>

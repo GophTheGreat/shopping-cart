@@ -1,6 +1,6 @@
 .navbar {
   display: flex;
-  width: 100%;
+  width: calc(100% - 6px);
   height: 10vh;
   justify-content: flex-end;
   align-items: center;

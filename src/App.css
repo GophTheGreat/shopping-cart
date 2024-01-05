@@ -6,7 +6,6 @@ body {
 
 #root {
   width: 100vw;
-  max-width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,7 +13,7 @@ body {
 }
 
 .itemWrapper {
-  width: 100%;
+  width: 98%;
   padding: 10px;
   display: flex;
   flex-direction: row;

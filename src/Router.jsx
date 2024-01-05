@@ -4,20 +4,20 @@ import App from "./App.jsx";
 import Cart from "./components/Cart.jsx";
 
 
-const Router = () => {
+const AppRouter = () => {
   const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    errorElement: <ErrorPage />
-  },
-  {
-    path: "/cart",
-    element: <Cart />,
-  },
+    {
+      path: "/",
+      element: <App />,
+      errorElement: <ErrorPage />
+    },
+    {
+      path: "/cart",
+      element: <Cart />,
+    }
   ]);
 
   return <RouterProvider router={router} />
 }
 
-export default Router;
+export default AppRouter;
