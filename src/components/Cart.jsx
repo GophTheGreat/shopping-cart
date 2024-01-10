@@ -1,17 +1,9 @@
-import { useLocation } from 'react-router-dom';
-import Navbar from './Navbar';
+import PropTypes from 'prop-types';
 
-function Cart() {
-
-  const location = useLocation();
-  console.log("Initial location:", location);
-  const cartItems = (location.state && location.state.cart) || [];
-
-  console.log("In the cart here is the cart: ", cartItems)
+function Cart( { cartItems }) {
   
  return (
   <>
-  <Navbar cartItems={cartItems}/>
   <div className="cartWrapper">
     {cartItems.map(cartItem => (
       <div className="cartItemContainer" key={cartItem.id}>
@@ -26,6 +18,9 @@ function Cart() {
   </>
 
  )
+}
+Cart.propTypes = {
+  cartItems: PropTypes.array
 }
 
 

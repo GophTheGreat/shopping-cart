@@ -1,7 +1,7 @@
 import "./App.css";
-import Item from "./components/Item";
-import Navbar from "./components/Navbar";
+import AppRouter from "./Router";
 import { useState, useEffect } from "react";
+
 
 function App() {
 
@@ -69,12 +69,7 @@ function App() {
 
   return (
   <>
-    <Navbar cartItems={cartItems}></Navbar>
-    <div className="itemWrapper">
-      {fetchedItems.map(item => (
-        <Item key={item.id} item={item} onAddToCart={onAddToCart}></Item>
-      ))}
-    </div>
+    <AppRouter fetchedItems={fetchedItems} onAddToCart={onAddToCart} cartItems={cartItems} />
   </>
   )
 }
