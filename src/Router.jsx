@@ -5,14 +5,14 @@ import Navbar from "./components/Navbar.jsx";
 import PropTypes from 'prop-types';
 
 
-const AppRouter = ( {fetchedItems, onAddToCart, cartItems} ) => {
+const AppRouter = ( {fetchedItems, onAddToCart, onRemoveFromCart, cartItems} ) => {
   const router = createBrowserRouter([
     {
       path: "/",
       element: (
         <>
           <Navbar cartItems={cartItems} />
-          <Store fetchedItems={fetchedItems} onAddToCart={onAddToCart}/>,
+          <Store fetchedItems={fetchedItems} onAddToCart={onAddToCart}/>
         </>
       )
     },
@@ -21,7 +21,7 @@ const AppRouter = ( {fetchedItems, onAddToCart, cartItems} ) => {
       element:(
         <>
           <Navbar cartItems={cartItems} />
-          <Cart cartItems={cartItems}/>,
+          <Cart cartItems={cartItems} onRemoveFromCart={onRemoveFromCart}/>
         </>
       )
     }
@@ -32,6 +32,7 @@ const AppRouter = ( {fetchedItems, onAddToCart, cartItems} ) => {
 AppRouter.propTypes = {
   fetchedItems: PropTypes.array,
   onAddToCart: PropTypes.func,
+  onRemoveFromCart: PropTypes.func,
   cartItems: PropTypes.array
 }
 

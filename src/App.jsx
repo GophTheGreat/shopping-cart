@@ -59,8 +59,20 @@ function App() {
       const updatedCartItems = prevCartItems.concat(newCartItems);
       reportCart(updatedCartItems);
       return updatedCartItems;
-     });
+      });
     }
+  }
+
+  function onRemoveFromCart(item){
+    console.log("Removing item from cart: ", item.item.id)
+    setCartItems(prevCartItems => {
+      const updatedCartItems = [...prevCartItems];
+      const index = updatedCartItems.findIndex(cartItem => cartItem.item.id === item.item.id)
+      console.log("Removing item at index: ", index)
+      updatedCartItems.splice(index, 1);
+      reportCart(updatedCartItems);
+      return updatedCartItems;
+    })
   }
 
   function reportCart(updatedCartItems){
@@ -69,7 +81,7 @@ function App() {
 
   return (
   <>
-    <AppRouter fetchedItems={fetchedItems} onAddToCart={onAddToCart} cartItems={cartItems} />
+    <AppRouter fetchedItems={fetchedItems} onAddToCart={onAddToCart} onRemoveFromCart={onRemoveFromCart} cartItems={cartItems} />
   </>
   )
 }
